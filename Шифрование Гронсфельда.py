@@ -1,4 +1,4 @@
-str = input()
+str = input('Введите сообщение: ')
 def code(str):
     key = '3'
     masKey = [3, 1, 4]
