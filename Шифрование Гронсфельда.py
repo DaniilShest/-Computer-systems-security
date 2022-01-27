@@ -12,7 +12,6 @@ def code(str):
             key += '4'
         elif key[-1] == '4':
             key += '3'    
-    print(key)
     for i in range(len(str)):
         sym = ord(str[i]) + int(key[i])
         mas.append(sym)
