@@ -12,6 +12,7 @@ def code(str):
             key += '4'
         elif key[-1] == '4':
             key += '3'    
+    print('Ключ: ' + key)
     for i in range(len(str)):
         sym = ord(str[i]) + int(key[i])
         mas.append(sym)
@@ -37,5 +38,5 @@ def decode(str):
 
 cStr = code(str)
 dStr = decode(cStr)
-print(cStr)
-print(dStr)
+print('Зашифрованно: ' + cStr)
+print('Рашифрованно: ' +dStr)
