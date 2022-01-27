@@ -1,7 +1,6 @@
 str = input('Введите сообщение: ')
 def code(str):
     key = '3'
-    masKey = [3, 1, 4]
     mas = [];
     finalMas = [];
 
@@ -24,7 +23,6 @@ def code(str):
 
 def decode(str):
     key = '3'
-    masKey = [3, 1, 4]
     mas = [];
     finalMas = [];
 
