@@ -23,9 +23,18 @@ def code(str):
     return ''.join(finalMas)
 
 def decode(str):
-    key = '3143143143143143143'
+    key = '3'
+    masKey = [3, 1, 4]
     mas = [];
     finalMas = [];
+
+    while len(key) != len(str):
+        if key[-1] == '3':
+            key += '1'
+        elif key[-1] == '1':
+            key += '4'
+        elif key[-1] == '4':
+            key += '3'
 
     for i in range(len(str)):
         sym = ord(str[i]) - int(key[i])
@@ -39,4 +48,4 @@ def decode(str):
 cStr = code(str)
 dStr = decode(cStr)
 print('Зашифрованно: ' + cStr)
-print('Рашифрованно: ' +dStr)
+print('Рашифрованно: ' + dStr)
