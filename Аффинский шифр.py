@@ -10,8 +10,6 @@ strHead = input('Введите сообщение: ')
 def encrypt(str):
     newStr = ''
     for i in range(len(str)):
-        sym = str[i]
-        lenght = len(str)
         num = abc.index(str[i])
         cryptNum = mod((a * num + b), 33)
         newStr = newStr + abc[cryptNum]
