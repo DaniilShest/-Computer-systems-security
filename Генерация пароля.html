@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: flex;
+            max-width: 1240px;
+            padding: 0 10px;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="">
+            <p><input type="checkbox" name="" id="num">Добавить цифры</p>
+            <p><input type="checkbox" name="" id="spec">Добавить спецсимволы</p>
+            <p><input type="checkbox" name="" id="up">Добавить заглавные буквы</p>
+            <button id="btn">Сгенерировать пароль</button>
+        </form>
+        <div class="text">
+            <h1>Сгенерированный пароль:</h1>
+            <h2 id="genPas"></h2>
+        </div>
+    </div>
+
+    <script>
+
+        function getPassword(array) {
+            let password = ''
+            for (let i = 0; i < array.length; i++) {
+                password += array[Math.floor(Math.random() * array.length)]
+                if (password.length >= 15) {
+                    break
+                }
+            }
+            return password
+        }
+
+        const check1 = document.getElementById('num')
+        const check2 = document.getElementById('spec')
+        const check3 = document.getElementById('up')
+
+        let password = ''
+        const btn = document.getElementById('btn')
+
+        const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        const lettersUpper = letters.map(letter => letter.toUpperCase())
+        const specSymbols = ['@', '#', '$', '%', '&', '^', '!']
+
+        if (check1.checked && check2.checked && check2.checked) {
+            getPassword(letters.concat(numbers).concat(lettersUpper).concat(specSymbols))
+        }
+        else if (check1.checked && check2.checked) {
+            getPassword(letters.concat(numbers).concat(lettersUpper))
+        }
+        else if (check1.checked) {
+            getPassword(letters.concat(numbers))
+        } else {
+            getPassword(letters)
+        }
+        btn.onclick = (e) => {
+            e.preventDefault()
+            if (check1.checked && check2.checked && check2.checked) {
+                password = getPassword(letters.concat(numbers).concat(lettersUpper).concat(specSymbols))
+            }
+            else if (check1.checked && check2.checked) {
+                password = getPassword(letters.concat(numbers).concat(lettersUpper))
+            }
+            else if (check1.checked) {
+                password = getPassword(letters.concat(numbers))
+            } else {
+                password = getPassword(letters)
+            }
+            document.getElementById('genPas').innerHTML = password
+        }
+    </script>
+</body>
+
+</html>
